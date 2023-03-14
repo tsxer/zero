@@ -1,0 +1,47 @@
+.team-section {
+  margin-bottom: 120px;
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 30px;
+  }
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 38px 58px 35px;
+  background: linear-gradient(
+    268.12deg,
+    rgba(254, 254, 255, 0.032) -11.04%,
+    rgba(255, 255, 255, 0.018) 104.89%
+  );
+  box-shadow: 0px 22px 18px rgba(0, 0, 0, 0.05);
+  border-radius: 34px;
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    text-align: center;
+    gap: 7px;
+    margin-bottom: 12px;
+    width: 197px;
+    &__name {
+      @include text($ff, 2.8rem, 3.6rem, 500, $white);
+    }
+    &__job {
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      @include text($ff, 1.6rem, 2.1rem, 400, $white);
+    }
+  }
+
+  &__soc {
+    display: flex;
+    gap: 12px;
+  }
+}

@@ -1,0 +1,66 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: $ff;
+  background: $bg;
+}
+
+.container {
+  max-width: $container;
+  margin-inline: auto;
+  @include tablet {
+    padding: 0 20px;
+  }
+}
+
+.btn {
+  display: inline-block;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  text-align: center;
+  background: $grad-btn;
+  &._primary {
+    @include text($ff, 1.4rem, 1.8rem, 500, $grey);
+    border-radius: 5px;
+    padding: 12px 28px;
+  }
+  &._secondary {
+    @include text($ff, 1.4rem, 1.8rem, 400, $white);
+    border-radius: 4px;
+    padding: 7px 14px;
+  }
+}
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  @include text($ff, 1.6rem, 2.1rem, 500, $grey);
+}
+.title {
+  @include text($ff, 4.2rem, 5.5rem, 700, $white);
+  margin-bottom: 30px;
+  &._primary {
+    text-align: center;
+  }
+}
+.desc {
+  max-width: 587px;
+  @include text($ff, 1.6rem, 2.6rem, 400, $white);
+  margin-inline: auto;
+  &._primary {
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  &._secondary {
+    margin-bottom: 30px;
+  }
+}
