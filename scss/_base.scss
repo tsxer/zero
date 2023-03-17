@@ -6,6 +6,9 @@
 
 html {
   font-size: 10px;
+  @include mobile {
+    font-size: 8px;
+  }
 }
 
 body {
@@ -19,15 +22,36 @@ body {
   @include tablet {
     padding: 0 20px;
   }
+  &._ftr {
+    padding: 33px 0 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include tablet {
+      padding: 33px 20px 36px;
+    }
+    @include mobile {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
 }
 
 .btn {
   display: inline-block;
+  position: relative;
   border: 0;
   outline: 0;
   cursor: pointer;
   text-align: center;
   background: $grad-btn;
+  z-index: 1;
+  overflow: hidden;
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  transition: $transition;
+
   &._primary {
     @include text($ff, 1.4rem, 1.8rem, 500, $grey);
     border-radius: 5px;
@@ -38,6 +62,61 @@ body {
     border-radius: 4px;
     padding: 7px 14px;
   }
+  &:hover {
+    background: $grad-btn-hvr;
+    box-shadow: 0 0 30px 5px rgba(95, 84, 225, 0.815);
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+  }
+
+  &:hover::before {
+    -webkit-animation: sh02 0.5s 0s linear;
+    -moz-animation: sh02 0.5s 0s linear;
+    animation: sh02 0.5s 0s linear;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    width: 0px;
+    height: 86%;
+    position: absolute;
+    top: 7%;
+    left: 0%;
+    opacity: 0;
+    background: #fff;
+    box-shadow: 0 0 50px 30px #fff;
+    -webkit-transform: skewX(-20deg);
+    -moz-transform: skewX(-20deg);
+    -ms-transform: skewX(-20deg);
+    -o-transform: skewX(-20deg);
+    transform: skewX(-20deg);
+  }
+
+  @keyframes sh02 {
+    from {
+      opacity: 0;
+      left: 0%;
+    }
+
+    50% {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+      left: 100%;
+    }
+  }
+
+  &:active {
+    box-shadow: 0 0 0 0 transparent;
+    transform: scale(0.95);
+    -webkit-transition: box-shadow 0.2s ease-in;
+    -moz-transition: box-shadow 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in;
+  }
 }
 .link {
   display: inline-flex;
@@ -47,20 +126,30 @@ body {
 }
 .title {
   @include text($ff, 4.2rem, 5.5rem, 700, $white);
-  margin-bottom: 30px;
   &._primary {
     text-align: center;
+    margin-bottom: 30px;
   }
 }
 .desc {
-  max-width: 587px;
   @include text($ff, 1.6rem, 2.6rem, 400, $white);
   margin-inline: auto;
   &._primary {
+    max-width: 587px;
     margin-bottom: 40px;
     text-align: center;
   }
   &._secondary {
+    max-width: 587px;
     margin-bottom: 30px;
   }
+}
+._link {
+  transition: $transition;
+  &:hover {
+    color: $hoover;
+  }
+}
+svg path {
+  transition: $transition;
 }

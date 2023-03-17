@@ -43,6 +43,22 @@
     @include tablet {
       justify-content: center;
     }
+    .link {
+      svg path {
+        transition: $transition;
+      }
+      .play {
+        transition: $transition;
+      }
+    }
+    .link:hover {
+      svg path {
+        fill: $hoover;
+      }
+      .play {
+        color: $hoover;
+      }
+    }
   }
 
   &__img {

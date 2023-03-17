@@ -1,0 +1,25 @@
+.footer-ender {
+  span {
+    display: block;
+    height: 1px;
+    width: 100%;
+    position: absolute;
+    background: #969696;
+    opacity: 0.2;
+  }
+  &__logo {
+    @include text($ff, 1.4rem, 1.4rem, 400, $footer);
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: 53px;
+    .footer-ender__link {
+      @include text($ff, 1.4rem, 1.4rem, 400, $footer);
+      transition: $transition;
+      &:hover {
+        color: $hoover;
+      }
+    }
+  }
+}

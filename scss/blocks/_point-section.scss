@@ -4,38 +4,19 @@
   row-gap: 57px;
   margin-bottom: 107px;
 }
-.point-first {
+.point-block {
   display: flex;
   gap: 30px;
   align-items: center;
   @include tablet {
     flex-direction: column;
   }
-  &__img {
-  }
-
-  &__text {
-    max-width: 582px;
+  &:nth-child(even) {
+    flex-direction: row-reverse;
     @include tablet {
-      display: flex;
       flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      align-items: center;
     }
   }
-}
-.point-second {
-  display: flex;
-  flex-direction: row-reverse;
-  gap: 30px;
-  align-items: center;
-  @include tablet {
-    flex-direction: column;
-  }
-  &__img {
-  }
-
   &__text {
     max-width: 582px;
     @include tablet {
